@@ -1,146 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Reception Management Dashboard</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <style>
-    /* === Responsive Fixes === */
     body {
-      padding-bottom: 3rem;
+      padding-bottom: 60px;
     }
-
-    #logo {
-      height: 80px;
-      width: auto;
-    }
-
-    .navbar-brand img {
-      max-height: 60px;
-    }
-
-    h1, h2 {
+    .button-container {
       margin-top: 1rem;
     }
-
-    .staff-table,
-    .schedule-table,
-    .delivery-board-table {
-      width: 100%;
+    .button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
     }
-
-    .table-responsive {
+    .positive {
+      background-color: #198754; /* Bootstrap green */
+      color: white;
+    }
+    .negative {
+      background-color: #dc3545; /* Bootstrap red */
+      color: white;
+    }
+    #logo {
+      max-height: 80px;
+      width: auto;
+    }
+    table td {
+      white-space: nowrap;
+    }
+    .staff-table-wrapper {
       overflow-x: auto;
     }
-
-    .button-container {
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .button {
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      min-width: 100px;
-    }
-
-    .button.positive {
-      background-color: #28a745;
-      color: white;
-    }
-
-    .button.negative {
-      background-color: #dc3545;
-      color: white;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 1.5rem;
-        text-align: center;
-      }
-
-      .position-absolute {
-        position: static !important;
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-
-      .button-container {
-        justify-content: center !important;
-      }
-
-      #logo {
-        height: 60px;
-        display: block;
-        margin: 0 auto;
-      }
+    h1, h2 {
+      margin-top: 1.5rem;
     }
   </style>
 </head>
 <body>
   <header class="navbar navbar-expand-lg bg-primary text-white">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">
-        <img src="images/company logo.png" alt="WeDeliverTECH">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-white" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Inventory</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Search</a></li>
-              <li><a class="dropdown-item" href="#">Add</a></li>
-              <li><a class="dropdown-item" href="#">Remove</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Orders</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Search</a></li>
-              <li><a class="dropdown-item" href="#">Add</a></li>
-              <li><a class="dropdown-item" href="#">Remove</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <a class="navbar-brand text-white" href="#">Dashboard</a>
     </div>
   </header>
 
   <main class="container mt-4">
-    <div class="text-center mb-4">
-      <img id="logo" src="images/company logo.png" alt="WeDeliverTECH">
-      <h1>Reception Management Dashboard</h1>
+    <!-- Logo and Heading -->
+    <div class="d-flex align-items-center mb-4">
+      <img id="logo" src="images/company logo.png" alt="WeDeliverTECH" class="me-3" />
+      <h1 class="h3">Reception Management Dashboard</h1>
     </div>
 
-    <section class="mb-5">
+    <!-- Staff Section -->
+    <section>
       <h2>Staff</h2>
-      <div class="table-responsive">
-        <table class="table staff-table">
-          <thead>
+      <div class="staff-table-wrapper">
+        <table class="table table-bordered table-hover table-sm" id="staff-table">
+          <thead class="table-light">
             <tr>
               <th>Picture</th>
               <th>Name</th>
               <th>Surname</th>
-              <th>Email Address</th>
+              <th>Email</th>
               <th>Status</th>
               <th>Out Time</th>
               <th>Duration</th>
-              <th>Expected Return Time</th>
+              <th>Expected Return</th>
             </tr>
           </thead>
-          <tbody id="staff-table-body"></tbody>
+          <tbody id="staff-table-body">
+            <tr>
+              <td><img src="https://randomuser.me/api/portraits/thumb/men/75.jpg" alt="staff" class="rounded-circle" /></td>
+              <td>John</td>
+              <td>Doe</td>
+              <td>john.doe@example.com</td>
+              <td>In</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+            </tr>
+            <tr>
+              <td><img src="https://randomuser.me/api/portraits/thumb/women/44.jpg" alt="staff" class="rounded-circle" /></td>
+              <td>Jane</td>
+              <td>Smith</td>
+              <td>jane.smith@example.com</td>
+              <td>Out</td>
+              <td>10:00</td>
+              <td>2h</td>
+              <td>12:00</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="button-container d-flex justify-content-between">
@@ -148,75 +101,20 @@
         <button class="button negative" id="out-button">Out</button>
       </div>
     </section>
-
-    <section class="mb-5">
-      <h2>Schedule Delivery</h2>
-      <form id="schedule-delivery-form">
-        <div class="table-responsive">
-          <table class="table schedule-table">
-            <thead>
-              <tr>
-                <th>Vehicle</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Telephone</th>
-                <th>Delivery Address</th>
-                <th>Return Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <select name="vehicle" id="vehicle" class="form-select" required>
-                    <option value="Car">Car</option>
-                    <option value="Motorcycle">Motorcycle</option>
-                  </select>
-                </td>
-                <td><input type="text" name="name" id="name" class="form-control" required /></td>
-                <td><input type="text" name="surname" id="surname" class="form-control" required /></td>
-                <td><input type="tel" name="telephone" id="telephone" class="form-control" pattern="^\d{8}$" required /></td>
-                <td><input type="text" name="address" id="address" class="form-control" pattern=".*\d.*" required /></td>
-                <td><input type="time" id="returnTime" name="returnTime" class="form-control" required /></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="button-container d-flex justify-content-end">
-          <button type="submit" id="submitButton" class="button positive">Submit</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="mb-5">
-      <h2>Delivery Board</h2>
-      <div id="delivery-board" class="table-responsive">
-        <table class="table delivery-board-table">
-          <thead>
-            <tr>
-              <th>Vehicle</th>
-              <th>Name</th>
-              <th>Surname</th>
-              <th>Telephone</th>
-              <th>Delivery Address</th>
-              <th>Return Time</th>
-            </tr>
-          </thead>
-          <tbody id="delivery-table-body"></tbody>
-        </table>
-        <div class="button-container d-flex justify-content-end">
-          <button id="clear-delivery" class="button negative">Clear</button>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <div class="toast-container position-fixed top-0 end-0 p-3" id="toast-container"></div>
-
-  <footer class="text-center py-3">
-    <div id="current-time"></div>
-  </footer>
-
-  <script src="wdt_app.js"></script>
+  <script>
+    // Gjør det mulig å velge én ansatt (rad) om gangen
+    document.addEventListener("DOMContentLoaded", () => {
+      const rows = document.querySelectorAll("#staff-table tbody tr");
+      rows.forEach(row => {
+        row.addEventListener("click", () => {
+          rows.forEach(r => r.classList.remove("table-success")); // Fjern grønn fra alle
+          row.classList.add("table-success"); // Marker valgt
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
