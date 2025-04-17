@@ -219,3 +219,43 @@ h1 {
   height: 140px;
 }
 
+@media only screen and (max-width: 400px) {
+    body, main, table, .navbar, footer {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    h1, h2 {
+        font-size: 24px;
+    }
+    
+    /* Table adjustments for better display on small screens */
+    table thead th, table tbody td {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    /* Navbar adjustments for vertical stacking */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Footer adjustments */
+    footer {
+        padding: 5px;
+        font-size: 12px;
+    }
+    
+    /* Adjust logo size */
+    #logo {
+        width: 100px;
+        height: auto;
+    }
+    
+    /* Responsive button adjustments */
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
