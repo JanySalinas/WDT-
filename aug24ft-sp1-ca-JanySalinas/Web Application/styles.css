@@ -1,261 +1,102 @@
-/* General Styles */
+/* === GLOBAL OVERRIDES === */
 body {
-  font-family: 'Calibri', sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #212529;
-}
-
-/* header.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  color: black;
-  padding: 10px 20px;
-  margin-top: 80px;
-  margin-right: 500px;
-} */
-
-/* header.navbar .logo {
-  max-width: 170px; /* Increase the size of the logo */
-  /* margin-left: 250px; /* Add some margin for better visibility */
-/* } */
-
-/* header.navbar h1 {
-  flex: 1;
-  text-align: center;
-  margin: 0;
-} */
-
-main {
-  padding: 20px;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
 }
 
 h1, h2 {
-  font-family: 'Consolas', monospace;
+  text-align: center;
+  margin: 1rem 0;
 }
 
 table {
   width: 100%;
-  border-collapse: separate; /* Change from collapse to separate */
-  border-spacing: 0;         /* Removes spacing between cells */
-  margin-bottom: 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;    /* Optional: Add a border to the table */
-  border-radius: 10px;       /* Adjust the corner radius as needed */
-  overflow: hidden;          /* Ensures contents respect the rounded corners */
+  border-collapse: collapse;
+  margin-bottom: 1rem;
 }
 
-table thead th {
-  background-color: #0e8ea8;
-  color: #fff;
-  padding: 10px;
-  font-family: 'Consolas', monospace;
+table th, table td {
+  padding: 8px;
+  text-align: left;
+  font-size: 0.9rem;
 }
 
-table tbody td {
-  border: 1px solid #212529;
-  padding: 10px;
+.button-container {
+  margin: 10px 0;
 }
 
-table tbody tr {
-  background-color: #83d1e1;
-}
-
-/* Button hover animation */
 .button {
-  transition: transform 0.2s ease-in-out;
-}
-
-.button:hover {
-  transform: scale(1.1); /* Scale button slightly on hover */
-}
-
-
-/* Buttons */
-.button {
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: none;
-  cursor: pointer;
-  font-family: 'Consolas', monospace;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.button.positive {
-  background-color: #198754;
-}
-
-.button.negative {
-  background-color: #dc3545;
-}
-
-/* .button-container {
-  display: flex;
-  gap: 10px;
-} */
-
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 2px;
-  background-color: #0e8ea8;
-  color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-#clear-delivery {
-  margin-bottom: 20px;
-}
-#add-delivery{
-  margin-bottom: 20px;
-}
-.toast img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-.toast-body {
-  display: flex;
-  align-items: center;
-}
-
-/* .toast {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.toast img {
-  width: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-} */
-
-.toast button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.toast button:hover {
-  background-color: darkred;
-}
-
-/* Optional: style the vehicle icons */
-.vehicle-icon {
-  width: 45px; /* Adjust size as necessary */
-  height: auto;
-}
-
-#delivery-table-body tbody tr:hover {
-  background-color: #008000 !important;
-  color: white !important;
-  cursor: pointer;
-} 
-
-.toast {
-  --bs-toast-max-width: 250px; /* Adjust to your desired width */
-}
-/* Navbar Styling */
-.navbar {
-  border-bottom: 2px solid #0e8ea8;
-  padding: 10px 10px; /* Reduce padding to make the navbar smaller */
-  width: auto; 
-  font-family: 'Consolas', monospace;
-  /* background-color: #0e8ea8; */
-}
-
-.nav-link {
+  border-radius: 6px;
   font-weight: bold;
-  font-size: 14px;
 }
 
-.navbar .dropdown-menu {
-  background-color: #a8d6ff;
-  border: 1px solid #0e8ea8;
-  font-size: 14px
-}
-
-.navbar .dropdown-menu .dropdown-item:hover {
-  background-color:#0e8ea8;
+.positive {
+  background-color: #28a745;
   color: white;
 }
 
-/* Adjust logo size */
-/* .logo {
-  max-width: 230px;
-  margin-left: 400px;
-} */
-/* .header-title {
-  margin-right: 85px;
-} */
-
-h1, h2 {
-  text-align: center;
+.negative {
+  background-color: #dc3545;
+  color: white;
 }
 
-h1 {
-  margin-bottom: 70px;
-  margin-top: 50px;
-}
-#logo{
-  width: 150px;
-  height: 140px;
+/* === MAKE TABLES SCROLLABLE ON MOBILE === */
+.staff-table,
+.schedule-table,
+.delivery-board-table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
 }
 
-@media only screen and (max-width: 400px) {
-    body, main, table, .navbar, footer {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    h1, h2 {
-        font-size: 24px;
-    }
-    
-    /* Table adjustments for better display on small screens */
-    table thead th, table tbody td {
-        padding: 8px;
-        font-size: 14px;
-    }
-    
-    /* Navbar adjustments for vertical stacking */
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    /* Footer adjustments */
-    footer {
-        padding: 5px;
-        font-size: 12px;
-    }
-    
-    /* Adjust logo size */
-    #logo {
-        width: 100px;
-        height: auto;
-    }
-    
-    /* Responsive button adjustments */
-    .button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
+/* === RESPONSIVE LOGO & HEADING === */
+#logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem auto;
 }
+
+/* === MEDIA QUERIES FOR MOBILE (iPhone 15 width ≈ 430px) === */
+@media only screen and (max-width: 500px) {
+  header .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-brand {
+    width: 100%;
+    text-align: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-container .button {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  table th, table td {
+    font-size: 0.8rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .position-absolute {
+    position: static !important;
+    text-align: center;
+  }
+
+  #logo {
+    height: 80px;
+  }
+}
+
